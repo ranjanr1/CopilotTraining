@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bucks2Bar</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark bg-dark px-4">
+    <span class="navbar-brand fw-bold fs-4">&#x1F4B5; Bucks2Bar</span>
+    <span class="text-secondary small">Income &amp; Expense Tracker</span>
+  </nav>
+
+  <!-- Main content -->
+  <div class="container-lg py-4">
+
+    <!-- Username Form -->
+    <form class="mb-4" id="usernameSection" novalidate>
+      <label for="usernameInput" class="form-label fw-semibold">Username</label>
+      <input type="text" class="form-control" id="usernameInput"
+             placeholder="Enter username"
+             aria-describedby="usernameHelp">
+      <div id="usernameHelp" class="form-text text-muted">
+        Must be at least 5 characters and include 1 uppercase letter, 1 number, and 1 special character.
+      </div>
+      <div id="usernameError" class="invalid-feedback"></div>
+      <div id="usernameSuccess" class="valid-feedback"></div>
+      <button class="btn btn-pink mt-2" id="usernameSubmitBtn" type="submit">Submit</button>
+    </form>
+
+    <!-- Tab Navigation -->
+    <ul class="nav nav-tabs mb-4" id="mainTabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="data-tab"
+                data-bs-toggle="tab" data-bs-target="#data-pane"
+                type="button" role="tab" aria-controls="data-pane" aria-selected="true">
+          Data
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="chart-tab"
+                data-bs-toggle="tab" data-bs-target="#chart-pane"
+                type="button" role="tab" aria-controls="chart-pane" aria-selected="false">
+          Chart
+        </button>
+      </li>
+    </ul>
+
+    <div class="tab-content" id="mainTabContent">
+
+      <!-- ── DATA TAB ──────────────────────────────────────────── -->
+      <div class="tab-pane fade show active" id="data-pane" role="tabpanel" aria-labelledby="data-tab">
+        <div class="data-grid" id="dataGrid">
+          <!-- Column Headers -->
+          <div class="data-grid-header">Month</div>
+          <div class="data-grid-header">Income (USD)</div>
+          <div class="data-grid-header">Expenses (USD)</div>
+          <div class="data-grid-header">Net (USD)</div>
+          <!-- Month rows injected by app.js -->
+          <!-- Totals row -->
+          <div class="data-grid-footer fw-bold">Total</div>
+          <div class="data-grid-footer" id="totalIncome">$0.00</div>
+          <div class="data-grid-footer" id="totalExpenses">$0.00</div>
+          <div class="data-grid-footer net-zero" id="totalNet">$0.00</div>
+        </div>
+      </div>
+
+      <!-- ── CHART TAB ─────────────────────────────────────────── -->
+      <div class="tab-pane fade" id="chart-pane" role="tabpanel" aria-labelledby="chart-tab">
+
+        <!-- Summary cards -->
+        <div class="row g-3 mb-4">
+          <div class="col-sm-4">
+            <div class="card border-success h-100">
+              <div class="card-body text-center py-3">
+                <div class="text-muted small mb-1">Total Income</div>
+                <div class="fs-5 fw-bold text-success" id="cardIncome">$0.00</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card border-danger h-100">
+              <div class="card-body text-center py-3">
+                <div class="text-muted small mb-1">Total Expenses</div>
+                <div class="fs-5 fw-bold text-danger" id="cardExpenses">$0.00</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card border-secondary h-100" id="cardNetContainer">
+              <div class="card-body text-center py-3">
+                <div class="text-muted small mb-1">Net</div>
+                <div class="fs-5 fw-bold text-secondary" id="cardNet">$0.00</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bar Chart -->
+        <div class="mb-2 text-end">
+          <button class="btn btn-outline-secondary btn-sm" id="downloadChartBtn">
+            &#x2B07; Download Chart
+          </button>
+        </div>
+        <div class="chart-container">
+          <canvas id="barChart"></canvas>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

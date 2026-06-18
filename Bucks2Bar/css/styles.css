@@ -1,0 +1,145 @@
+/* ── Global ────────────────────────────────────────────────────── */
+body {
+  background-color: #f5f6f8;
+  color: #212529;
+}
+
+/* ── Navbar ────────────────────────────────────────────────────── */
+.navbar-brand {
+  letter-spacing: 0.5px;
+}
+
+/* ── Tabs ──────────────────────────────────────────────────────── */
+.nav-tabs .nav-link {
+  font-weight: 500;
+  color: #495057;
+}
+
+.nav-tabs .nav-link.active {
+  font-weight: 600;
+  color: #0d6efd;
+}
+
+/* ── Data Grid ─────────────────────────────────────────────────── */
+.data-grid {
+  display: grid;
+  grid-template-columns: 120px 1fr 1fr 1fr;
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.data-grid-header {
+  background: #212529;
+  color: #fff;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+
+.data-grid-cell {
+  padding: 0.5rem 1rem;
+  border-top: 1px solid #dee2e6;
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+}
+
+/* Alternate row shading — every 2nd row (8 cells apart in a 4-col grid) */
+.data-grid-cell:nth-child(8n+9),
+.data-grid-cell:nth-child(8n+10),
+.data-grid-cell:nth-child(8n+11),
+.data-grid-cell:nth-child(8n+12) {
+  background: #f8f9fa;
+}
+
+.data-grid-footer {
+  padding: 0.75rem 1rem;
+  background: #e9ecef;
+  border-top: 2px solid #ced4da;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+}
+
+@media (max-width: 576px) {
+  .data-grid {
+    grid-template-columns: 72px 1fr 1fr 1fr;
+  }
+  .data-grid-header,
+  .data-grid-cell,
+  .data-grid-footer {
+    padding: 0.4rem 0.5rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Currency input groups */
+.money-input {
+  min-width: 120px;
+  text-align: right;
+}
+
+.money-input:focus {
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+}
+
+/* ── Net Cell Coloring ─────────────────────────────────────────── */
+.net-positive {
+  color: #198754;
+  font-weight: 600;
+}
+
+.net-negative {
+  color: #dc3545;
+  font-weight: 600;
+}
+
+.net-zero {
+  color: #6c757d;
+  font-weight: 500;
+}
+
+/* ── Summary Cards ─────────────────────────────────────────────── */
+.card {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07);
+  transition: border-color 0.2s ease;
+}
+
+/* ── Pink Button ──────────────────────────────────────────────── */
+.btn-pink {
+  background-color: #e91e8c;
+  border-color: #e91e8c;
+  color: #ffffff;
+}
+
+.btn-pink:hover,
+.btn-pink:focus {
+  background-color: #c4177a;
+  border-color: #c4177a;
+  color: #ffffff;
+}
+
+.btn-pink:active {
+  background-color: #a8136a;
+  border-color: #a8136a;
+}
+
+/* ── Chart Container ───────────────────────────────────────────── */
+.chart-container {
+  position: relative;
+  max-width: 960px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+/* ── Responsive tweaks ─────────────────────────────────────────── */
+@media (max-width: 576px) {
+  .money-input {
+    min-width: 90px;
+  }
+}
