@@ -33,10 +33,10 @@ export default function RootLayout({
         <ClerkProvider>
           <header className="flex items-center justify-end gap-4 px-6 py-4 border-b">
             <Show when="signed-out">
-              <SignInButton mode="modal">
+              <SignInButton mode="modal" forceRedirectUrl="/dashboard">
                 <Button variant="outline">Sign in</Button>
               </SignInButton>
-              <SignUpButton mode="modal">
+              <SignUpButton mode="modal" forceRedirectUrl="/dashboard">
                 <Button>Sign up</Button>
               </SignUpButton>
             </Show>

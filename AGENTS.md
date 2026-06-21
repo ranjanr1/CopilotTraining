@@ -32,3 +32,4 @@ This workspace contains two projects. All detailed coding standards are split in
 - Prefer editing existing files over creating new ones.
 - Run `npm run lint` and `npm run build` inside `linkshortnerproject/` before considering any task complete.
 - All new code must be TypeScript-strict-compliant (`"strict": true`).
+- **NEVER use `middleware.ts`** — it is deprecated in the version of Next.js used in this workspace. All proxy/middleware logic must live in `proxy.ts` instead.

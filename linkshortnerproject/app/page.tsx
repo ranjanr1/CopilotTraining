@@ -49,7 +49,7 @@ export default async function HomePage() {
           smarter, measure what matters, and manage all your links from one place.
         </p>
         <div className="flex flex-col gap-3 sm:flex-row">
-          <SignUpButton mode="modal">
+          <SignUpButton mode="modal" forceRedirectUrl="/dashboard">
             <Button size="lg">Get started for free</Button>
           </SignUpButton>
         </div>
